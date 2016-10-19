@@ -1,13 +1,35 @@
 function validateForm(){
-var nombre, apellido, correo, contraseña;
-nombre = document.getElementById ('nombre').value; 
-apellido = document.getElementById ('apellido').value;
-correo = document.getElementById ('correo').value;
-contraseña = document.getElementById ('contraseña').value;
+	var spans = document.getElementsByTagName("span");
+	for (var i = 0; i < spans.length; i ++){
+			spans[i].parentNode.removeChild(spans[i])
+		}
 
-if (nombre == null || nombre.length == 0)
-var errorNombre = document.createElement ("span"); 
-var errorText = document.createTextNode ("Campo vacio");
-errorNombre.appendChild ('textError');
-document.getElementByTagName ('div')[1].appendChild (errorNombre);
+	var name = document.getElementById ("name");
+	if (name.value == null || name.value ==""){
+		var span = document.createElement ("span");
+		span.innerHTML  = "Campo Incorrecto";
+		name.parentNode.appendChild (span);
+	}
+
+	var lastName = document.getElementById ("lastname");
+	if (lastName.value == null || lastName.value ==""){
+		var span = document.createElement ("span");
+		span.innerHTML  = "Campo Incorrecto";
+		lastName.parentNode.appendChild (span);
+	}
+
+	var email = document.getElementById ("input-email");
+	if (email.value == null || email.value ==""){
+		var span = document.createElement ("span");
+		span.innerHTML  = "Campo Incorrecto";
+		email.parentNode.appendChild (span);
+	}
+
+	var password = document.getElementById ("input-password");
+	if (password.value == null || password.value ==""){
+		var span = document.createElement ("span");
+		span.innerHTML  = "Campo Incorrecto";
+		password.parentNode.appendChild (span);
+	}
 }
+
