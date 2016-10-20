@@ -1,24 +1,52 @@
 function validateForm(){
-	var spans = document.getElementsByTagName("span");
-	for (var i = 0; i < spans.length; i ++){
-			spans[i].parentNode.removeChild(spans[i])
-		}
+	
+	
+	var spans = document.getElementsByClassName ("error");
 
-	var name = document.getElementById ("name");
-	if (name.value == null || name.value ==""){
-		var span = document.createElement ("span");
-		span.innerHTML  = "Campo Incorrecto";
-		name.parentNode.appendChild (span);
+	while (spans.length > 0) {
+			spans[0].parentElement.removeChild(spans[0]);
 	}
 
-	var lastName = document.getElementById ("lastname");
-	if (lastName.value == null || lastName.value ==""){
+	var name = document.getElementById("name");
+	var nameExp = /^[a-z]/;
+	if (name.value == null || nameExp.test(name.value)== false){
 		var span = document.createElement ("span");
-		span.innerHTML  = "Campo Incorrecto";
+		span.setAttribute ("class", "error");
+		span.innerHTML  = "Nombre Incorrecto";
+		name.parentNode.appendChild(span);
+	}
+
+	var lastName = document.getElementById("lastname");
+	var lastNameExp = /^[A-Z]/;
+	if (lastName.value == null || lastNameExp.test(lastName.value)== false){
+		var span = document.createElement ("span");
+		span.setAttribute ("class", "error");
+		span.innerHTML  = "Apellido Incorrecto";
 		lastName.parentNode.appendChild (span);
 	}
 
-	var email = document.getElementById ("input-email");
+	var email = document.getElementById("input-email");
+	var emailExp = /^[A-Z]/;
+	if (emailExp.value == null || emailExp.test(email.value)== false){
+		var span = document.createElement ("span");
+		span.setAttribute ("class", "error");
+		span.innerHTML  = "Correo Incorrecto";
+		email.parentNode.appendChild (span);
+	}
+
+	var emailExp = /^[A-Z]/;
+	if (emailExp.value == null || emailExp.test(email.value)== false){
+		var span = document.createElement ("span");
+		span.setAttribute ("class", "error");
+		span.innerHTML  = "Correo Incorrecto";
+		email.parentNode.appendChild (span);
+	}
+}
+
+
+
+
+	/*var email = document.getElementById ("input-email");
 	if (email.value == null || email.value ==""){
 		var span = document.createElement ("span");
 		span.innerHTML  = "Campo Incorrecto";
@@ -28,8 +56,9 @@ function validateForm(){
 	var password = document.getElementById ("input-password");
 	if (password.value == null || password.value ==""){
 		var span = document.createElement ("span");
-		span.innerHTML  = "Campo Incorrecto";
+		span.innerHTML  = "	Campo Incorrecto";
 		password.parentNode.appendChild (span);
 	}
 }
 
+*/
